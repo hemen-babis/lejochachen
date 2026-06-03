@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baptism Calculator | Lijochachen</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-lang="en">
+  <header class="site-shell subpage-shell" id="top">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Lijochachen logo">
+        <span>Lijochachen</span>
+      </a>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="about.html"><span class="lang en">About</span><span class="lang am">ስለ እኛ</span></a>
+          <div class="dropdown-menu">
+            <a href="about.html#story"><span class="lang en">Our Story & Leadership</span><span class="lang am">ታሪካችንና አመራር</span></a>
+            <a href="about.html#recognition"><span class="lang en">Church Recognition</span><span class="lang am">የቤተ ክርስቲያን ዕውቅና</span></a>
+          </div>
+        </div>
+        <a href="resources.html"><span class="lang en">Resources</span><span class="lang am">መረጃዎች</span></a>
+        <a href="baptism.html"><span class="lang en">Calculator</span><span class="lang am">ማስያ</span></a>
+        <div class="nav-item">
+          <a href="support.html"><span class="lang en">Support</span><span class="lang am">ድጋፍ</span></a>
+          <div class="dropdown-menu">
+            <a href="support.html#why"><span class="lang en">Why Support Us</span><span class="lang am">ለምን ይደግፉናል</span></a>
+            <a href="support.html#give"><span class="lang en">Give / Volunteer</span><span class="lang am">ይስጡ / ያገልግሉ</span></a>
+            <a href="support.html#join"><span class="lang en">Become a Member</span><span class="lang am">አባል ይሁኑ</span></a>
+            <a href="support.html#contact"><span class="lang en">Contact</span><span class="lang am">ያግኙን</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="language-toggle" aria-label="Language selector">
+        <button type="button" class="lang-btn active" data-set-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-set-lang="am">አማ</button>
+      </div>
+    </nav>
+
+    <section class="page-hero">
+      <p class="eyebrow"><span class="lang en">Baptism Day Calculator</span><span class="lang am">የጥምቀት ቀን ማስያ</span></p>
+      <h1><span class="lang en">Find the baptism date in both Gregorian and Ethiopian calendars.</span><span class="lang am">የጥምቀት ቀንን በጎርጎርዮሳዊና በኢትዮጵያ ቀን ያስሉ።</span></h1>
+    </section>
+  </header>
+
+  <main>
+    <section class="section baptism-section">
+
+      <!-- Scripture context -->
+      <div class="scripture-break" style="margin-bottom: 32px;">
+        <span class="mini-label"><span class="lang en">Ethiopian Orthodox Tradition</span><span class="lang am">የኢትዮጵያ ኦርቶዶክስ ልምድ</span></span>
+        <blockquote style="font-size: clamp(1.3rem, 3vw, 2.2rem);">
+          <span class="lang en">"Boys are baptised on the 40th day, girls on the 80th — following the purification laws of Leviticus and the dedication of the Lord in the Temple."</span>
+          <span class="lang am">"ወንዶች ልጆች በ40ኛው ቀን፣ ሴቶች ልጆች በ80ኛው ቀን ይጠመቃሉ — የሌዋውያንን የንጽሕና ሕግ እና የጌታን ቤተ ክርስቲያን ውስጥ ማቅረቡን ተከትሎ።"</span>
+        </blockquote>
+        <strong><span class="lang en">Leviticus 12 • Luke 2:22</span><span class="lang am">ሌዋውያን 12 • ሉቃስ 2፡22</span></strong>
+      </div>
+
+      <!-- Calculator card -->
+      <div class="calculator-card">
+        <div class="calculator-intro">
+          <span class="mini-label"><span class="lang en">How it works</span><span class="lang am">እንዴት ይሠራል</span></span>
+          <p><span class="lang en">Enter the child's birthdate (Gregorian). The calculator adds 40 days for a boy and 80 days for a girl, then shows the baptism date in both calendars.</span><span class="lang am">የልጁን/የልጅቷን የጎርጎርዮሳዊ የልደት ቀን ያስገቡ። ለወንድ 40 ቀን፣ ለሴት 80 ቀን ይጨምርና ሁለቱንም ቀን ያሳያል።</span></p>
+          <ul style="padding-left: 18px; color: var(--muted); font-size: 0.97rem; margin-top: 8px; display: grid; gap: 6px;">
+            <li><span class="lang en"><strong>Boy:</strong> Birth date + 40 days</span><span class="lang am"><strong>ወንድ፡</strong> የልደት ቀን + 40 ቀን</span></li>
+            <li><span class="lang en"><strong>Girl:</strong> Birth date + 80 days</span><span class="lang am"><strong>ሴት፡</strong> የልደት ቀን + 80 ቀን</span></li>
+          </ul>
+        </div>
+
+        <form class="baptism-form" id="baptism-form">
+          <label class="birthdate-field">
+            <span><span class="lang en">Child's Birthdate (Gregorian)</span><span class="lang am">የልጁ/ልጅቷ የልደት ቀን (ጎርጎርዮሳዊ)</span></span>
+            <input id="bdate" type="date" required>
+          </label>
+
+          <fieldset>
+            <legend><span class="lang en">Child's Gender</span><span class="lang am">የልጁ ጾታ</span></legend>
+            <label class="radio-pill">
+              <input type="radio" name="gender" value="male" checked>
+              <span><span class="lang en">Boy — +40 days</span><span class="lang am">ወንድ — +40 ቀን</span></span>
+            </label>
+            <label class="radio-pill">
+              <input type="radio" name="gender" value="female">
+              <span><span class="lang en">Girl — +80 days</span><span class="lang am">ሴት — +80 ቀን</span></span>
+            </label>
+          </fieldset>
+
+          <button type="submit">
+            <span class="lang en">Calculate Baptism Day</span>
+            <span class="lang am">የጥምቀት ቀን አስላ</span>
+          </button>
+
+          <div class="calculator-result" id="baptism-result" style="display:none;">
+            <!-- filled by app.js -->
+          </div>
+        </form>
+      </div>
+
+      <!-- Celebration guidance -->
+      <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;">
+        <div class="why-card">
+          <span class="card-icon">🕯️</span>
+          <h3><span class="lang en">How to celebrate a baptism day</span><span class="lang am">የጥምቀት ቀንን እንዴት እናክብር</span></h3>
+          <p><span class="lang en">A birthday centers on receiving gifts. A baptism day is a yearly tradition of giving in honor of spiritual rebirth.</span><span class="lang am">የልደት ቀን ብዙ ጊዜ ስጦታ መቀበል ላይ ያተኩራል። የጥምቀት ቀን ግን ዓመታዊ የመስጠት ወግ ነው።</span></p>
+        </div>
+        <div class="why-card">
+          <span class="card-icon">🍞</span>
+          <h3><span class="lang en">Feed the poor</span><span class="lang am">ድሆችን ምግብ አቅርቡ</span></h3>
+          <p><span class="lang en">Prepare food packages for families in need, orphans, or elders as an act of gratitude for the child's spiritual birth.</span><span class="lang am">ለድሃ ቤተሰቦች፣ ለወላጅ አልባ ልጆች ወይም ለአረጋውያን ምግብ ማዘጋጀት — ለልጁ/ልጅቷ መንፈሳዊ ልደት ምስጋና።</span></p>
+        </div>
+        <div class="why-card">
+          <span class="card-icon">⛪</span>
+          <h3><span class="lang en">Give to the Church</span><span class="lang am">ለቤተ ክርስቲያን ስጡ</span></h3>
+          <p><span class="lang en">Support your parish, Sunday School, or a spiritual education project like Lijochachen on the baptism day.</span><span class="lang am">የጥምቀት ቀን ቤተ ክርስቲያናችሁን፣ ሰንበት ትምህርት ቤቱን ወይም ልጆቻችን ያለ ፕሮጀክት ይደግፉ።</span></p>
+        </div>
+        <div class="why-card">
+          <span class="card-icon">🙏</span>
+          <h3><span class="lang en">Attend Liturgy</span><span class="lang am">ቅዳሴ ይሳተፉ</span></h3>
+          <p><span class="lang en">Attend the Qidase, light a candle, and pray for the child and for those who are suffering on the baptism anniversary.</span><span class="lang am">ቅዳሴ ይሳተፉ፣ ሻማ ያብሩ፣ ለልጁ/ልጅቷ እና ለሚሰቃዩ ሰዎች ይጸልዩ።</span></p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-invitation">
+      <strong><span class="lang en">Let's raise our children together.</span><span class="lang am">ልጆቻችንን አብረን እናሳድግ!</span></strong>
+      <span>© 2026 Lijochachen | ልጆቻችን</span>
+    </div>
+    <aside class="telegram-widget">
+      <span class="mini-label"><span class="lang en">YouTube Channel</span><span class="lang am">የዩቱብ ቻናል</span></span>
+      <h3>Lejochachen</h3>
+      <p><span class="lang en">Stories, songs, feast-day lessons, quizzes, and family programs for Ethiopian Orthodox families.</span><span class="lang am">ለኢትዮጵያ ኦርቶዶክስ ቤተሰቦች ታሪኮች፣ መዝሙሮች፣ የበዓላት ትምህርቶችና የቤተሰብ ፕሮግራሞች።</span></p>
+      <a href="https://www.youtube.com/@lejochachen" target="_blank" rel="noopener">youtube.com/@lejochachen</a>
+    </aside>
+    <a href="#top"><span class="lang en">Back to top</span><span class="lang am">ወደ ላይ</span></a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
