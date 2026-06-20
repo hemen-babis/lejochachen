@@ -21,6 +21,39 @@ document.querySelectorAll('[data-set-lang]').forEach(btn => {
 /* Apply placeholders on load */
 applyPlaceholders(root.dataset.lang || 'en');
 
+/* ── Active navigation ── */
+function updateActiveNav() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    const [targetPageRaw, targetHash] = href.split('#');
+    const targetPage = targetPageRaw || currentPage;
+    const isCurrentPage = targetPage === currentPage || (currentPage === '' && targetPage === 'index.html');
+
+    link.removeAttribute('aria-current');
+    if (isCurrentPage && !targetHash) {
+      link.setAttribute('aria-current', 'page');
+    } else if (isCurrentPage && window.location.hash === `#${targetHash}`) {
+      link.setAttribute('aria-current', 'location');
+    }
+  });
+}
+
+updateActiveNav();
+window.addEventListener('hashchange', updateActiveNav);
+
+/* ── Gallery image handling ── */
+document.querySelectorAll('img[data-gallery-img]').forEach(img => {
+  img.addEventListener('error', () => {
+    const removable = img.closest('[data-gallery-card]');
+    if (removable) {
+      removable.remove();
+    } else {
+      img.remove();
+    }
+  });
+});
+
 /* ── Donation tabs ── */
 document.querySelectorAll('.donation-tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -157,8 +190,14 @@ if (baptismForm && baptismResult) {
     const gender = document.querySelector('input[name="gender"]:checked')?.value || 'male';
     if (!bdateVal) return;
     const [year, month, day] = bdateVal.split('-').map(Number);
-    const daysToAdd = gender === 'male' ? 40 : 80;
-    const birthJdn = gregorianToJdn(year, month, day);
+    // Birth date = Day 1 (inclusive boundary). Day 40/80 = birth + 39/79 days.
+    const dayCount = gender === 'male' ? 40 : 80;
+    const daysToAdd = dayCount - 1; // Day 1 = birth, so Day 40 = birth + 39
+
+    // Ecclesiastical night-birth adjustment: births midnight–5:59 AM align to preceding day's index
+    const nightBirth = document.getElementById('night-birth')?.checked;
+    const birthJdn = gregorianToJdn(year, month, day) - (nightBirth ? 1 : 0);
+
     const baptismJdn = birthJdn + daysToAdd;
     const baptismGreg = jdnToGregorian(baptismJdn);
     const baptismEth = jdnToEthiopian(baptismJdn);
@@ -168,16 +207,19 @@ if (baptismForm && baptismResult) {
     const gLabel = lang === 'am'
       ? (gender === 'male' ? 'ወንድ ልጅ' : 'ሴት ልጅ')
       : (gender === 'male' ? 'Boy' : 'Girl');
+    const nightNote = nightBirth
+      ? (lang === 'am' ? ' (ሌሊት ልደት — የቀድሞው ቀን ኢንዴክስ ጥቅም ላይ ዋለ)' : ' (Night birth — preceding day index applied)')
+      : '';
 
     baptismResult.innerHTML = `
-      <span class="mini-label">${lang === 'am' ? 'የጥምቀት ቀን' : 'Baptism Date'}</span>
+      <span class="mini-label">${lang === 'am' ? 'የጥምቀት ቀን' : 'Baptism Date'} — ${lang === 'am' ? `${dayCount}ኛ ቀን` : `Day ${dayCount}`}</span>
       <p>
         <strong>${formatGreg(baptismGreg)}</strong>
         <span>${formatEth(baptismEth)}</span>
         <span style="margin-top:8px;font-size:0.9rem;opacity:0.8">
           ${lang === 'am'
-            ? `${gLabel} — ከልደት ${daysToAdd} ቀናት ኋላ`
-            : `${gLabel} — ${daysToAdd} days after birth`}
+            ? `${gLabel} — ${dayCount}ኛ ቀን (ልደት = ቀን 1)${nightNote}`
+            : `${gLabel} — Day ${dayCount} (birth = Day 1)${nightNote}`}
         </span>
         <span style="font-size:0.88rem;opacity:0.72;margin-top:4px">
           ${lang === 'am'
@@ -188,3 +230,31 @@ if (baptismForm && baptismResult) {
     baptismResult.style.display = 'block';
   });
 }
+
+/* ── Age Roadmap tabs ── */
+document.querySelectorAll('.roadmap-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const group = btn.closest('.age-roadmap');
+    group.querySelectorAll('.roadmap-tab-btn').forEach(b => b.classList.remove('active'));
+    group.querySelectorAll('.roadmap-panel').forEach(p => { p.hidden = true; });
+    btn.classList.add('active');
+    const panel = group.querySelector('#' + btn.dataset.panel);
+    if (panel) panel.hidden = false;
+  });
+});
+
+/* ── Playlist tabs ── */
+document.querySelectorAll('.playlist-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.playlist-tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const target = btn.dataset.playlist;
+    document.querySelectorAll('.video-card').forEach(card => {
+      if (target === 'all' || card.dataset.playlist === target) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});

@@ -3,25 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources | Lijochachen</title>
+  <title>Resources | Lejochachen</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-lang="en">
   <header class="site-shell subpage-shell" id="top">
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="index.html">
-        <img src="assets/logo.png" alt="Lijochachen logo">
-        <span>Lijochachen</span>
+        <img src="assets/logo.png" alt="Lejochachen logo">
+        <span><span class="lang en">Lejochachen</span><span class="lang am">ልጆቻችን</span></span>
       </a>
+
       <div class="nav-links">
         <div class="nav-item">
           <a href="about.html"><span class="lang en">About</span><span class="lang am">ስለ እኛ</span></a>
           <div class="dropdown-menu">
+            <a href="about.html#purpose"><span class="lang en">Our Purpose</span><span class="lang am">ዓላማችን</span></a>
             <a href="about.html#story"><span class="lang en">Our Story & Leadership</span><span class="lang am">ታሪካችንና አመራር</span></a>
             <a href="about.html#recognition"><span class="lang en">Church Recognition</span><span class="lang am">የቤተ ክርስቲያን ዕውቅና</span></a>
+            <a href="about.html#legal-entities"><span class="lang en">Legal Entities</span><span class="lang am">ሕጋዊ አካላት</span></a>
+            <a href="about.html#leadership"><span class="lang en">Leadership</span><span class="lang am">አመራር</span></a>
           </div>
         </div>
-        <a href="resources.html"><span class="lang en">Resources</span><span class="lang am">መረጃዎች</span></a>
+        <a href="index.html#work"><span class="lang en">Our Work</span><span class="lang am">ሥራችን</span></a>
+        <div class="nav-item">
+          <a href="resources.html"><span class="lang en">Resources</span><span class="lang am">መረጃዎች</span></a>
+          <div class="dropdown-menu">
+            <a href="resources.html#youtube"><span class="lang en">YouTube Channel</span><span class="lang am">የዩቱብ ቻናል</span></a>
+            <a href="resources.html#family-registry"><span class="lang en">Family Spiritual Registry</span><span class="lang am">የቤተሰብ ማኅደር</span></a>
+            <a href="resources.html#photo-archive"><span class="lang en">Photo Archive</span><span class="lang am">የፎቶ ማኅደር</span></a>
+          </div>
+        </div>
         <a href="baptism.html"><span class="lang en">Calculator</span><span class="lang am">ማስያ</span></a>
         <div class="nav-item">
           <a href="support.html"><span class="lang en">Support</span><span class="lang am">ድጋፍ</span></a>
@@ -33,6 +45,7 @@
           </div>
         </div>
       </div>
+
       <div class="language-toggle" aria-label="Language selector">
         <button type="button" class="lang-btn active" data-set-lang="en">EN</button>
         <button type="button" class="lang-btn" data-set-lang="am">አማ</button>
@@ -46,9 +59,19 @@
   </header>
 
   <main>
+    <section class="resource-feature-strip">
+      <figure data-gallery-card>
+        <img src="assets/gallery/PHOTO-2026-06-06-01-28-53 3.jpg" alt="Children in an Orthodox storytelling lesson" data-gallery-img>
+      </figure>
+      <div>
+        <p class="eyebrow"><span class="lang en">Media That Feels Close</span><span class="lang am">ቅርብ የሚመስል ሚዲያ</span></p>
+        <h2><span class="lang en">Lessons shaped for children who learn through story, song, image, and conversation.</span><span class="lang am">በታሪክ፣ በመዝሙር፣ በምስልና በውይይት ለሚማሩ ልጆች የተቀረጹ ትምህርቶች።</span></h2>
+      </div>
+    </section>
+
     <!-- YouTube Channel Banner -->
     <section id="youtube" class="section">
-      <a class="channel-banner" href="https://www.youtube.com/@lejochachen" target="_blank" rel="noopener">
+      <div id="yt-channel-banner" class="channel-banner">
         <div class="channel-banner-icon">
           <img src="assets/logo.png" alt="Lejochachen YouTube channel logo">
         </div>
@@ -59,14 +82,38 @@
         <a class="btn primary" href="https://www.youtube.com/@lejochachen" target="_blank" rel="noopener">
           <span class="lang en">Visit Channel</span><span class="lang am">ቻናሉን ይጎብኙ</span>
         </a>
-      </a>
-
-      <div class="section-heading compact">
-        <p class="eyebrow"><span class="lang en">All Videos</span><span class="lang am">ሁሉም ቪዲዮዎች</span></p>
-        <h2><span class="lang en">Newest to oldest — 58 episodes.</span><span class="lang am">ከአዲስ እስከ ያረጀ — 58 ክፍሎች።</span></h2>
       </div>
 
-      <div class="video-grid">
+      <div id="yt-featured" hidden></div>
+
+      <div class="section-heading compact" style="margin-bottom: 18px;">
+        <p class="eyebrow"><span class="lang en">Video Archive by Playlist</span><span class="lang am">ዝርዝር በፕሌይሊስት</span></p>
+        <h2 id="yt-grid-title"><span class="lang en">Browse by topic.</span><span class="lang am">በርዕሰ ጉዳይ ያስሱ።</span></h2>
+      </div>
+
+      <!-- Search input -->
+      <div class="yt-search-wrap">
+        <input id="yt-search" type="search" class="yt-search-input"
+               placeholder="Search videos… / ቪዲዮ ፈልጉ…"
+               autocomplete="off" aria-label="Search videos">
+      </div>
+
+      <div id="yt-playlist-tabs" class="playlist-filter-row">
+        <button class="playlist-tab-btn active" data-playlist="all">
+          <span class="lang en">All Episodes</span><span class="lang am">ሁሉም ክፍሎች</span>
+        </button>
+        <button class="playlist-tab-btn" data-playlist="feast">
+          <span class="lang en">Feast Days &amp; Holy Seasons</span><span class="lang am">ዓለታዊ ሥርዓቶች</span>
+        </button>
+        <button class="playlist-tab-btn" data-playlist="stories">
+          <span class="lang en">Stories &amp; Teachings</span><span class="lang am">ታሪኮችና ትምህርቶች</span>
+        </button>
+        <button class="playlist-tab-btn" data-playlist="hymns">
+          <span class="lang en">Songs &amp; Hymns</span><span class="lang am">መዝሙሮች</span>
+        </button>
+      </div>
+
+<div id="yt-video-grid" class="video-grid">
 
         <!-- Jan 30, 2026 -->
         <a class="video-card" href="https://youtu.be/6hoH9Hhcw90" target="_blank" rel="noopener">
@@ -81,7 +128,7 @@
         </a>
 
         <!-- Jan 25, 2026 -->
-        <a class="video-card" href="https://youtu.be/Qk-q80vaHUY" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="stories" href="https://youtu.be/Qk-q80vaHUY" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/Qk-q80vaHUY/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -117,7 +164,7 @@
         </a>
 
         <!-- Jan 7, 2026 — Christmas special 1 -->
-        <a class="video-card" href="https://youtu.be/74MueRqfRxY" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/74MueRqfRxY" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/74MueRqfRxY/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -129,7 +176,7 @@
         </a>
 
         <!-- Jan 7, 2026 — Christmas special 2 -->
-        <a class="video-card" href="https://youtu.be/dTLXL48tSac" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/dTLXL48tSac" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/dTLXL48tSac/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -141,7 +188,7 @@
         </a>
 
         <!-- Jan 7, 2026 — Christmas special 3 -->
-        <a class="video-card" href="https://youtu.be/692y1HxkXA4" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/692y1HxkXA4" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/692y1HxkXA4/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -153,7 +200,7 @@
         </a>
 
         <!-- Jan 7, 2026 — Christmas special 4 -->
-        <a class="video-card" href="https://youtu.be/tDt36nvvZFg" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/tDt36nvvZFg" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/tDt36nvvZFg/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -165,7 +212,7 @@
         </a>
 
         <!-- Jan 6, 2026 -->
-        <a class="video-card" href="https://youtu.be/zwiWOmIcne8" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="hymns" href="https://youtu.be/zwiWOmIcne8" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/zwiWOmIcne8/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -201,7 +248,7 @@
         </a>
 
         <!-- Dec 20, 2025 -->
-        <a class="video-card" href="https://youtu.be/mdcfG02ctME" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="stories" href="https://youtu.be/mdcfG02ctME" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/mdcfG02ctME/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -237,7 +284,7 @@
         </a>
 
         <!-- Nov 29, 2025 -->
-        <a class="video-card" href="https://youtu.be/aghimvWnTxU" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/aghimvWnTxU" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/aghimvWnTxU/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -249,7 +296,7 @@
         </a>
 
         <!-- Nov 15, 2025 -->
-        <a class="video-card" href="https://youtu.be/c9ipCEiIf8A" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="stories" href="https://youtu.be/c9ipCEiIf8A" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/c9ipCEiIf8A/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -273,7 +320,7 @@
         </a>
 
         <!-- Oct 26, 2025 -->
-        <a class="video-card" href="https://youtu.be/gFEAjEJG6EQ" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="stories" href="https://youtu.be/gFEAjEJG6EQ" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/gFEAjEJG6EQ/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -297,7 +344,7 @@
         </a>
 
         <!-- Oct 18, 2025 -->
-        <a class="video-card" href="https://youtu.be/Jyx0Lw5S9r0" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="hymns" href="https://youtu.be/Jyx0Lw5S9r0" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/Jyx0Lw5S9r0/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -345,7 +392,7 @@
         </a>
 
         <!-- Oct 3, 2025 -->
-        <a class="video-card" href="https://youtu.be/ofkKS3_KX7A" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/ofkKS3_KX7A" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/ofkKS3_KX7A/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -465,7 +512,7 @@
         </a>
 
         <!-- Aug 8, 2025 -->
-        <a class="video-card" href="https://youtu.be/Hb-IqbqEyx0" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/Hb-IqbqEyx0" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/Hb-IqbqEyx0/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -525,7 +572,7 @@
         </a>
 
         <!-- Jun 28, 2025 -->
-        <a class="video-card" href="https://youtu.be/3ETuQDzpv90" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/3ETuQDzpv90" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/3ETuQDzpv90/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -549,7 +596,7 @@
         </a>
 
         <!-- Jun 19, 2025 -->
-        <a class="video-card" href="https://youtu.be/YgLyyRLdrTk" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/YgLyyRLdrTk" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/YgLyyRLdrTk/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -561,7 +608,7 @@
         </a>
 
         <!-- Jun 13, 2025 -->
-        <a class="video-card" href="https://youtu.be/1TCoKRmLPq0" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="stories" href="https://youtu.be/1TCoKRmLPq0" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/1TCoKRmLPq0/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -585,7 +632,7 @@
         </a>
 
         <!-- Jun 6, 2025 -->
-        <a class="video-card" href="https://youtu.be/M8_6wq_IESo" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/M8_6wq_IESo" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/M8_6wq_IESo/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -669,7 +716,7 @@
         </a>
 
         <!-- May 9, 2025 -->
-        <a class="video-card" href="https://youtu.be/n4Oy9a4fc7Q" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/n4Oy9a4fc7Q" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/n4Oy9a4fc7Q/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -717,7 +764,7 @@
         </a>
 
         <!-- Apr 17, 2025 — Crucifixion -->
-        <a class="video-card" href="https://youtu.be/HNfIcJRyeLU" target="_blank" rel="noopener">
+        <a class="video-card" data-playlist="feast" href="https://youtu.be/HNfIcJRyeLU" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://img.youtube.com/vi/HNfIcJRyeLU/mqdefault.jpg" alt="Video thumbnail" loading="lazy">
             <div class="video-play"><div class="video-play-icon"></div></div>
@@ -752,8 +799,70 @@
           </div>
         </a>
 
-      </div><!-- /.video-grid -->
+      </div><!-- /#yt-video-grid -->
+
+      <div id="yt-load-more-wrap" class="yt-load-more-wrap" hidden>
+        <button id="yt-load-more" class="btn ghost yt-load-more-btn">
+          <span class="lang en">Load more videos</span><span class="lang am">ተጨማሪ ቪዲዮዎች</span>
+        </button>
+      </div>
+
     </section><!-- /#youtube -->
+
+    <!-- QR Code + Channel Cross-Link -->
+    <section class="section qr-section">
+      <div class="qr-block">
+        <div class="qr-block-text">
+          <span class="mini-label"><span class="lang en">Quick Access</span><span class="lang am">ፈጣን ዳሰሳ</span></span>
+          <h3><span class="lang en">Scan to open our YouTube channel directly.</span><span class="lang am">ቻናላችን ለመክፈት ስካን ያድርጉ።</span></h3>
+          <p><span class="lang en">Share this QR code with family, friends, and congregation members to connect them directly to Lejochachen's video library — stories, hymns, feast-day lessons, and children's programs.</span><span class="lang am">ቤተሰቦች፣ ጓደኞች እና የቤተ ክርስቲያን ወንድሞችና እኅቶችን ቀጥታ ወደ ልጆቻችን ቪዲዮ ማኅደር ለማድረስ ይህን QR ኮድ ያካፍሉ — ታሪኮች፣ መዝሙሮች፣ ዓለታዊ ትምህርቶች፣ እና የልጆች ፕሮግራሞች።</span></p>
+          <a class="btn primary" href="https://www.youtube.com/@lejochachen" target="_blank" rel="noopener" style="margin-top: 14px; display: inline-flex;">
+            <span class="lang en">Visit Channel</span><span class="lang am">ቻናሉን ይጎብኙ</span>
+          </a>
+        </div>
+        <div class="qr-code-display">
+          <img src="assets/youtube-qr.png" alt="Lejochachen YouTube channel QR code" onerror="this.parentElement.innerHTML='<div class=\'qr-placeholder\'><span>QR</span><small>youtube.com/@lejochachen</small></div>'">
+        </div>
+      </div>
+    </section>
+
+    <!-- Family Spiritual Registry PDF -->
+    <section id="family-registry" class="section">
+      <div class="registry-banner">
+        <div class="registry-banner-text">
+          <span class="mini-label"><span class="lang en">Downloadable Resource</span><span class="lang am">ሊወርድ የሚችል ሀብት</span></span>
+          <h2><span class="lang en">Family Spiritual Registry</span><span class="lang am">የቤተሰብ መንፈሳዊ ማኅደር</span></h2>
+          <p><span class="lang en">A structured, fillable family document for recording each child's baptism date, spiritual name, godparents (Semae Wolaj), covenant milestones, and key liturgical dates. Print at home or complete digitally and save.</span><span class="lang am">የእያንዳንዱ ልጅ የጥምቀት ቀን፣ ሥም፣ ሰምዕ ወላጆች፣ ቃለ ኪዳን ምዕራፎች እና ወሳኝ ሥርዓቱ ቀናት ለመዘገብ የተዘጋጀ ሊሞላ የሚችል ሰነድ። ቤት ውስጥ ያትሙ ወይም ዲጂታሊ ሞልተው ያስቀምጡ።</span></p>
+          <div class="registry-actions">
+            <a class="btn primary" href="assets/family-spiritual-registry.pdf" download>
+              <span class="lang en">Download PDF</span><span class="lang am">PDF አውርዱ</span>
+            </a>
+            <button type="button" class="btn ghost" style="color: var(--green); border-color: var(--green);" onclick="window.print()">
+              <span class="lang en">Print Directly</span><span class="lang am">አሁኑኑ አትሙ</span>
+            </button>
+          </div>
+        </div>
+        <div class="registry-preview">
+          <div class="registry-card-mock">
+            <div class="registry-mock-header">
+              <strong>Lejochachen</strong>
+              <span><span class="lang en">Family Spiritual Registry</span><span class="lang am">የቤተሰብ መንፈሳዊ ማኅደር</span></span>
+            </div>
+            <div class="registry-mock-fields">
+              <div class="registry-mock-field"><label><span class="lang en">Child's Full Name</span><span class="lang am">ሙሉ ስም</span></label><div class="registry-mock-line"></div></div>
+              <div class="registry-mock-field"><label><span class="lang en">Baptism Date (GC)</span><span class="lang am">የጥምቀት ቀን (ጎ.ቀ.)</span></label><div class="registry-mock-line"></div></div>
+              <div class="registry-mock-field"><label><span class="lang en">Baptism Date (EC)</span><span class="lang am">የጥምቀት ቀን (ኢ.ቀ.)</span></label><div class="registry-mock-line"></div></div>
+              <div class="registry-mock-field"><label><span class="lang en">Spiritual Name</span><span class="lang am">ሥም</span></label><div class="registry-mock-line"></div></div>
+              <div class="registry-mock-field"><label><span class="lang en">Godparents (Semae Wolaj)</span><span class="lang am">ሰምዕ ወላጆች</span></label><div class="registry-mock-line"></div></div>
+              <div class="registry-mock-field"><label><span class="lang en">Parish Church</span><span class="lang am">ቤተ ክርስቲያን</span></label><div class="registry-mock-line"></div></div>
+            </div>
+            <div class="registry-mock-footer">
+              <span><span class="lang en">Ethiopian Orthodox Tewahedo Church (EOTC)</span><span class="lang am">ኢትዮጵያ ኦርቶዶክስ ተዋህዶ ቤተ ክርስቲያን (EOTC)</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Expert Callout -->
     <section class="section">
@@ -768,22 +877,81 @@
       </div>
     </section>
 
+    <section class="section gallery-section">
+      <div class="section-heading compact">
+        <p class="eyebrow"><span class="lang en">Learning Environments</span><span class="lang am">የትምህርት ቦታዎች</span></p>
+        <h2><span class="lang en">From classrooms to church courtyards, every setting can become formation.</span><span class="lang am">ከክፍል እስከ ቤተ ክርስቲያን አደባባይ፣ ሁሉም ቦታ የምስረታ ቦታ ሊሆን ይችላል።</span></h2>
+      </div>
+      <div class="gallery-grid four">
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-53.jpg" alt="Children in a learning circle" data-gallery-img></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-55 3.jpg" alt="Children practicing traditional music" data-gallery-img></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-08 2.jpg" alt="Children in a church courtyard" data-gallery-img></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-09 2.jpg" alt="Children celebrating a church event" data-gallery-img></figure>
+      </div>
+    </section>
+
+    <section id="photo-archive" class="section gallery-section">
+      <div class="section-heading compact">
+        <p class="eyebrow"><span class="lang en">Photo Archive</span><span class="lang am">የፎቶ ማኅደር</span></p>
+        <h2><span class="lang en">A fuller picture of the children, families, clergy, and mentors behind the mission.</span><span class="lang am">ከተልዕኮው ጀርባ ያሉ ልጆች፣ ቤተሰቦች፣ ካህናትና መሪዎች ሙሉ ምስል።</span></h2>
+      </div>
+      <div class="photo-archive-grid">
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-52 2.jpg" alt="Lejochachen photo archive 1" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-52 3.jpg" alt="Lejochachen photo archive 2" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-52.jpg" alt="Lejochachen photo archive 3" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-53 2.jpg" alt="Lejochachen photo archive 4" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-53 3.jpg" alt="Lejochachen photo archive 5" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-53.jpg" alt="Lejochachen photo archive 6" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-54 2.jpg" alt="Lejochachen photo archive 7" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-54 3.jpg" alt="Lejochachen photo archive 8" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-54.jpg" alt="Lejochachen photo archive 9" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-55 2.jpg" alt="Lejochachen photo archive 10" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-55 3.jpg" alt="Lejochachen photo archive 11" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-55 4.jpg" alt="Lejochachen photo archive 12" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-55.jpg" alt="Lejochachen photo archive 13" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-56 2.jpg" alt="Lejochachen photo archive 14" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-28-56.jpg" alt="Lejochachen photo archive 15" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-30-33.jpg" alt="Lejochachen photo archive 16" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-30-34 2.jpg" alt="Lejochachen photo archive 17" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-30-34.jpg" alt="Lejochachen photo archive 18" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-30-37.jpg" alt="Lejochachen photo archive 19" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-33-40 2.jpg" alt="Lejochachen photo archive 20" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-33-40.jpg" alt="Lejochachen photo archive 21" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-35-59 2.jpg" alt="Lejochachen photo archive 22" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-35-59.jpg" alt="Lejochachen photo archive 23" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-38-26 2.jpg" alt="Lejochachen photo archive 24" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-38-26.jpg" alt="Lejochachen photo archive 25" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-06 2.jpg" alt="Lejochachen photo archive 26" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-06.jpg" alt="Lejochachen photo archive 27" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-07 2.jpg" alt="Lejochachen photo archive 28" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-07 3.jpg" alt="Lejochachen photo archive 29" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-07 4.jpg" alt="Lejochachen photo archive 30" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-07.jpg" alt="Lejochachen photo archive 31" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-08 2.jpg" alt="Lejochachen photo archive 32" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-08 3.jpg" alt="Lejochachen photo archive 33" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-08 4.jpg" alt="Lejochachen photo archive 34" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-08.jpg" alt="Lejochachen photo archive 35" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-09 2.jpg" alt="Lejochachen photo archive 36" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-09 3.jpg" alt="Lejochachen photo archive 37" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-09.jpg" alt="Lejochachen photo archive 38" data-gallery-img loading="lazy"></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-10.jpg" alt="Lejochachen photo archive 39" data-gallery-img loading="lazy"></figure>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <div class="footer-invitation">
-      <strong><span class="lang en">Let's raise our children together.</span><span class="lang am">ልጆቻችንን አብረን እናሳድግ!</span></strong>
-      <span>© 2026 Lijochachen | ልጆቻችን</span>
-    </div>
-    <aside class="telegram-widget">
-      <span class="mini-label"><span class="lang en">YouTube Channel</span><span class="lang am">የዩቱብ ቻናል</span></span>
-      <h3>Lejochachen</h3>
-      <p><span class="lang en">58 videos and growing — stories, songs, feast-day lessons, and children's programs.</span><span class="lang am">58 ቪዲዮዎች — ታሪኮች፣ መዝሙሮች፣ የበዓላት ትምህርቶችና የልጆች ፕሮግራሞች።</span></p>
-      <a href="https://www.youtube.com/@lejochachen" target="_blank" rel="noopener">youtube.com/@lejochachen</a>
-    </aside>
-    <a href="#top"><span class="lang en">Back to top</span><span class="lang am">ወደ ላይ</span></a>
-  </footer>
+  <p>© 2026 Lejochachen. All Rights Reserved.</p>
+  <p>Principal Office: 17318 SW 128th Ave, Tigard, OR 97224</p>
+  <div class="footer-entity-row">
+    <span class="footer-entity"><strong>Lejochachen-ETH</strong> — EOTC-Lejochachen Professional Association Ethiopia</span>
+    <span class="footer-entity-sep">|</span>
+    <span class="footer-entity"><strong>Lejochachen-US</strong> — Lejochachen Charity Organization (United States)</span>
+  </div>
+  <p>Lejochachen is organized and operated exclusively for charitable, religious, and educational purposes under Section 501(c)(3) of the Internal Revenue Code. · <a href="about.html#legal-entities">Legal &amp; Compliance</a></p>
+</footer>
 
   <script src="app.js"></script>
+  <script src="youtube.js"></script>
 </body>
 </html>

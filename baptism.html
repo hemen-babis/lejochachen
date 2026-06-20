@@ -3,25 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baptism Calculator | Lijochachen</title>
+  <title>Baptism Calculator | Lejochachen</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-lang="en">
   <header class="site-shell subpage-shell" id="top">
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="index.html">
-        <img src="assets/logo.png" alt="Lijochachen logo">
-        <span>Lijochachen</span>
+        <img src="assets/logo.png" alt="Lejochachen logo">
+        <span><span class="lang en">Lejochachen</span><span class="lang am">ልጆቻችን</span></span>
       </a>
+
       <div class="nav-links">
         <div class="nav-item">
           <a href="about.html"><span class="lang en">About</span><span class="lang am">ስለ እኛ</span></a>
           <div class="dropdown-menu">
+            <a href="about.html#purpose"><span class="lang en">Our Purpose</span><span class="lang am">ዓላማችን</span></a>
             <a href="about.html#story"><span class="lang en">Our Story & Leadership</span><span class="lang am">ታሪካችንና አመራር</span></a>
             <a href="about.html#recognition"><span class="lang en">Church Recognition</span><span class="lang am">የቤተ ክርስቲያን ዕውቅና</span></a>
+            <a href="about.html#legal-entities"><span class="lang en">Legal Entities</span><span class="lang am">ሕጋዊ አካላት</span></a>
+            <a href="about.html#leadership"><span class="lang en">Leadership</span><span class="lang am">አመራር</span></a>
           </div>
         </div>
-        <a href="resources.html"><span class="lang en">Resources</span><span class="lang am">መረጃዎች</span></a>
+        <a href="index.html#work"><span class="lang en">Our Work</span><span class="lang am">ሥራችን</span></a>
+        <div class="nav-item">
+          <a href="resources.html"><span class="lang en">Resources</span><span class="lang am">መረጃዎች</span></a>
+          <div class="dropdown-menu">
+            <a href="resources.html#youtube"><span class="lang en">YouTube Channel</span><span class="lang am">የዩቱብ ቻናል</span></a>
+            <a href="resources.html#family-registry"><span class="lang en">Family Spiritual Registry</span><span class="lang am">የቤተሰብ ማኅደር</span></a>
+            <a href="resources.html#photo-archive"><span class="lang en">Photo Archive</span><span class="lang am">የፎቶ ማኅደር</span></a>
+          </div>
+        </div>
         <a href="baptism.html"><span class="lang en">Calculator</span><span class="lang am">ማስያ</span></a>
         <div class="nav-item">
           <a href="support.html"><span class="lang en">Support</span><span class="lang am">ድጋፍ</span></a>
@@ -33,6 +45,7 @@
           </div>
         </div>
       </div>
+
       <div class="language-toggle" aria-label="Language selector">
         <button type="button" class="lang-btn active" data-set-lang="en">EN</button>
         <button type="button" class="lang-btn" data-set-lang="am">አማ</button>
@@ -46,6 +59,15 @@
   </header>
 
   <main>
+    <section class="wide-photo-band baptism-photo-band">
+      <img src="assets/gallery/PHOTO-2026-06-06-01-38-26.jpg" alt="Children gathered at church for baptism and spiritual formation" data-gallery-img>
+      <div>
+        <p class="eyebrow"><span class="lang en">A Holy Beginning</span><span class="lang am">ቅዱስ መጀመሪያ</span></p>
+        <h2><span class="lang en">Baptism is not only a date to calculate. It is a life to nurture.</span><span class="lang am">ጥምቀት የሚቆጠር ቀን ብቻ አይደለም። የሚንከባከበው ሕይወት ነው።</span></h2>
+        <p><span class="lang en">Use the calculator, then mark the anniversary with prayer, giving, teaching, and gratitude.</span><span class="lang am">ማስያውን ይጠቀሙ፣ ከዚያም ዓመታዊውን ቀን በጸሎት፣ በመስጠት፣ በትምህርትና በምስጋና ያስቡ።</span></p>
+      </div>
+    </section>
+
     <section class="section baptism-section">
 
       <!-- Scripture context -->
@@ -62,10 +84,10 @@
       <div class="calculator-card">
         <div class="calculator-intro">
           <span class="mini-label"><span class="lang en">How it works</span><span class="lang am">እንዴት ይሠራል</span></span>
-          <p><span class="lang en">Enter the child's birthdate (Gregorian). The calculator adds 40 days for a boy and 80 days for a girl, then shows the baptism date in both calendars.</span><span class="lang am">የልጁን/የልጅቷን የጎርጎርዮሳዊ የልደት ቀን ያስገቡ። ለወንድ 40 ቀን፣ ለሴት 80 ቀን ይጨምርና ሁለቱንም ቀን ያሳያል።</span></p>
+          <p><span class="lang en">Enter the child's birthdate (Gregorian). The birth date counts as Day 1. The calculator finds Day 40 for a boy and Day 80 for a girl, then shows the baptism date in both calendars.</span><span class="lang am">የልጁን/የልጅቷን የጎርጎርዮሳዊ የልደት ቀን ያስገቡ። የልደት ቀን ቀን 1 ነው። ለወንድ 40ኛ ቀን፣ ለሴት 80ኛ ቀን ያሳያል።</span></p>
           <ul style="padding-left: 18px; color: var(--muted); font-size: 0.97rem; margin-top: 8px; display: grid; gap: 6px;">
-            <li><span class="lang en"><strong>Boy:</strong> Birth date + 40 days</span><span class="lang am"><strong>ወንድ፡</strong> የልደት ቀን + 40 ቀን</span></li>
-            <li><span class="lang en"><strong>Girl:</strong> Birth date + 80 days</span><span class="lang am"><strong>ሴት፡</strong> የልደት ቀን + 80 ቀን</span></li>
+            <li><span class="lang en"><strong>Boy:</strong> Day 40 from birth (birth = Day 1)</span><span class="lang am"><strong>ወንድ፡</strong> ከልደት 40ኛ ቀን (ልደት = ቀን 1)</span></li>
+            <li><span class="lang en"><strong>Girl:</strong> Day 80 from birth (birth = Day 1)</span><span class="lang am"><strong>ሴት፡</strong> ከልደት 80ኛ ቀን (ልደት = ቀን 1)</span></li>
           </ul>
         </div>
 
@@ -79,13 +101,34 @@
             <legend><span class="lang en">Child's Gender</span><span class="lang am">የልጁ ጾታ</span></legend>
             <label class="radio-pill">
               <input type="radio" name="gender" value="male" checked>
-              <span><span class="lang en">Boy — +40 days</span><span class="lang am">ወንድ — +40 ቀን</span></span>
+              <span><span class="lang en">Boy — Day 40</span><span class="lang am">ወንድ — 40ኛ ቀን</span></span>
             </label>
             <label class="radio-pill">
               <input type="radio" name="gender" value="female">
-              <span><span class="lang en">Girl — +80 days</span><span class="lang am">ሴት — +80 ቀን</span></span>
+              <span><span class="lang en">Girl — Day 80</span><span class="lang am">ሴት — 80ኛ ቀን</span></span>
             </label>
           </fieldset>
+
+          <!-- Night-birth ecclesiastical edge-case -->
+          <div class="night-birth-toggle">
+            <label class="night-birth-label">
+              <input type="checkbox" id="night-birth">
+              <span>
+                <span class="lang en">Child born between midnight and 5:59 AM</span>
+                <span class="lang am">ልጁ/ልጅቷ ከሌሊቱ 12 እስከ ንጋቱ 12 ሰዓት (5:59 AM) ልደዱ</span>
+              </span>
+            </label>
+            <div class="night-birth-info">
+              <strong class="night-birth-info-title">
+                <span class="lang en">Ecclesiastical Time Boundary (ንጋቱ 12 ሰዓት)</span>
+                <span class="lang am">የቀን መቀያየሪያ ሰዓት — ንጋቱ 12 ሰዓት</span>
+              </strong>
+              <p>
+                <span class="lang en">In Ethiopian Orthodox Tewahedo Church (EOTC) tradition, the liturgical day begins at 6:00 AM (ንጋቱ 12 ሰዓት). A child born between midnight and 5:59 AM is ecclesiastically counted as having been born on the preceding calendar day. Check this box to apply the correct day index.</span>
+                <span class="lang am">በኢትዮጵያ ኦርቶዶክስ ተዋህዶ ቤተ ክርስቲያን (EOTC) ወጋዊ ቀን ቆጥሮ፣ አዲሱ ቀን የሚጀምረው ንጋቱ 12 ሰዓት (ጎርጎሮሳዊ 6:00 ጠዋት) ነው። ከሌሊቱ 12 እስከ ንጋቱ 12 ሰዓት (5:59 AM) የተወለደ ልጅ ቀዳሚው ቀን እንደተወለደ ይቆጠራል። ይህን ሳጥን ምልክት ያድርጉ።</span>
+              </p>
+            </div>
+          </div>
 
           <button type="submit">
             <span class="lang en">Calculate Baptism Day</span>
@@ -113,7 +156,7 @@
         <div class="why-card">
           <span class="card-icon">⛪</span>
           <h3><span class="lang en">Give to the Church</span><span class="lang am">ለቤተ ክርስቲያን ስጡ</span></h3>
-          <p><span class="lang en">Support your parish, Sunday School, or a spiritual education project like Lijochachen on the baptism day.</span><span class="lang am">የጥምቀት ቀን ቤተ ክርስቲያናችሁን፣ ሰንበት ትምህርት ቤቱን ወይም ልጆቻችን ያለ ፕሮጀክት ይደግፉ።</span></p>
+          <p><span class="lang en">Support your parish, Sunday School, or a spiritual education project like Lejochachen on the baptism day.</span><span class="lang am">የጥምቀት ቀን ቤተ ክርስቲያናችሁን፣ ሰንበት ትምህርት ቤቱን ወይም ልጆቻችን ያለ ፕሮጀክት ይደግፉ።</span></p>
         </div>
         <div class="why-card">
           <span class="card-icon">🙏</span>
@@ -123,21 +166,174 @@
       </div>
 
     </section>
+
+    <section class="section gallery-section">
+      <div class="image-ribbon">
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-08 3.jpg" alt="Children praying together" data-gallery-img></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-33-40.jpg" alt="Children in Ethiopian Orthodox traditional dress" data-gallery-img></figure>
+        <figure data-gallery-card><img src="assets/gallery/PHOTO-2026-06-06-01-44-06.jpg" alt="A child receiving a blessing" data-gallery-img></figure>
+      </div>
+    </section>
+
+    <!-- ── Age-Appropriate Spiritual Roadmap ── -->
+    <section class="section age-roadmap-section">
+      <div class="section-heading compact">
+        <p class="eyebrow"><span class="lang en">Interactive Spiritual Roadmap</span><span class="lang am">ዕድሜ-ተኮር የመንፈሳዊ ምስረታ ካርታ</span></p>
+        <h2><span class="lang en">Four stages of faith formation and identity.</span><span class="lang am">ቃለ ኪዳን ምስረታ አራት ደረጃዎች።</span></h2>
+        <p class="section-lead"><span class="lang en">From baptism day forward, each stage of childhood calls for different engagement. Explore the roadmap for your child's current stage.</span><span class="lang am">ከጥምቀት ቀን ጀምሮ፣ የልጅነት እያንዳንዱ ደረጃ የተለየ ሕብረት ይፈልጋል። ለልጅዎ ወቅታዊ ደረጃ ካርታውን ያስሱ።</span></p>
+      </div>
+
+      <div class="age-roadmap">
+        <!-- Tab buttons -->
+        <div class="roadmap-tabs" role="tablist">
+          <button class="roadmap-tab-btn active" data-panel="roadmap-1-4" role="tab" aria-selected="true">
+            <span class="roadmap-tab-age"><span class="lang en">Ages</span><span class="lang am">ዕድሜ</span> 1–4</span>
+            <span class="roadmap-tab-label"><span class="lang en">Foundation</span><span class="lang am">መሠረት</span></span>
+          </button>
+          <button class="roadmap-tab-btn" data-panel="roadmap-5-7" role="tab" aria-selected="false">
+            <span class="roadmap-tab-age"><span class="lang en">Ages</span><span class="lang am">ዕድሜ</span> 5–7</span>
+            <span class="roadmap-tab-label"><span class="lang en">Curiosity</span><span class="lang am">የጥያቄ ወቅት</span></span>
+          </button>
+          <button class="roadmap-tab-btn" data-panel="roadmap-8-12" role="tab" aria-selected="false">
+            <span class="roadmap-tab-age"><span class="lang en">Ages</span><span class="lang am">ዕድሜ</span> 8–12</span>
+            <span class="roadmap-tab-label"><span class="lang en">Identity</span><span class="lang am">ማንነት</span></span>
+          </button>
+          <button class="roadmap-tab-btn" data-panel="roadmap-13-18" role="tab" aria-selected="false">
+            <span class="roadmap-tab-age"><span class="lang en">Ages</span><span class="lang am">ዕድሜ</span> 13–18</span>
+            <span class="roadmap-tab-label"><span class="lang en">Covenant</span><span class="lang am">ቃል ኪዳን</span></span>
+          </button>
+        </div>
+
+        <!-- Tab 1: Ages 1–4 -->
+        <div class="roadmap-panel" id="roadmap-1-4" role="tabpanel">
+          <div class="roadmap-panel-header">
+            <span class="mini-label"><span class="lang en">Ages 1–4 · Foundation &amp; Introduction</span><span class="lang am">ዕድሜ 1–4 · መሠረትና ቅኝት</span></span>
+            <h3><span class="lang en">Sensory alignment and memory anchoring.</span><span class="lang am">ስሜታዊ ትስስርና የትዝታ መቀረጽ።</span></h3>
+            <p><span class="lang en">At this stage, children absorb the sights, sounds, and rhythms of faith before they can articulate them. The goal is to anchor the Ethiopian Orthodox Tewahedo Church (EOTC) tradition in the child's earliest memories.</span><span class="lang am">በዚህ ደረጃ ልጆች ምስሉን፣ ድምፁን፣ እና ሪትሙን ከእምነት ጋር ይሰምራሉ። ዓላማው ቀደምት ትዝታቸው ውስጥ EOTC ወጉን ማቀረቅ ነው።</span></p>
+          </div>
+          <div class="roadmap-features">
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">🕯️</span>
+              <h4><span class="lang en">Candle-Lighting Ritual</span><span class="lang am">ሻማ ማብሪያ ሥርዓት</span></h4>
+              <p><span class="lang en">Establish a weekly candle-lighting rhythm tied to feast days or Sunday worship. Let the child hold the candle under supervision — the warmth and light create lasting sensory memory.</span><span class="lang am">ከዓላት ወይም ከሰንበት አምልኮ ጋር ተያይዞ ሳምንታዊ ሻማ ማብሪያ ሥርዓት ይጀምሩ። ልጁ/ልጅቷ ሻማ ይዞ ይምራ — ሙቀቱና ብርሃኑ ዘላቂ ስሜታዊ ትዝታ ይፈጥራሉ።</span></p>
+            </div>
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">🎵</span>
+              <h4><span class="lang en">Background Hymn Streaming</span><span class="lang am">የዜማ ዳራ አዳምጦ</span></h4>
+              <p><span class="lang en">Play traditional EOTC hymns — mezmur, qine, and feast-day songs — as ambient audio during family meals, play, and sleep. Visit the <a href="resources.html#youtube">Resources page</a> for our curated hymn playlist.</span><span class="lang am">ቤተሰባዊ ምግብ፣ ጨዋታ እና እንቅልፍ ወቅት ባህላዊ EOTC መዝሙሮችን — መዝሙር፣ ቅኔ — አዳምጡ። ለሙዚቃ ዝርዝር <a href="resources.html#youtube">ሀብቶች ገጽ</a> ይጎብኙ።</span></p>
+            </div>
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">📸</span>
+              <h4><span class="lang en">Baptismal Media &amp; Photo Archive</span><span class="lang am">የጥምቀት ፎቶና ሚዲያ ማኅደር</span></h4>
+              <p><span class="lang en">Create a dedicated album of the child's baptism day — photos, certificate scans, and short videos. Revisit these annually on the baptism anniversary as a family act of gratitude.</span><span class="lang am">የልጁ/ልጅቷ የጥምቀት ቀን ወደ ልዩ አልበም ያሰባስቡ — ፎቶዎች፣ ሰርቲፊኬት ቅኝቶች፣ አጭር ቪዲዮዎች። ዓመታዊ ምስጋና ሥርዓት ሆኖ ይቀጥል።</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Ages 5–7 -->
+        <div class="roadmap-panel" id="roadmap-5-7" hidden role="tabpanel">
+          <div class="roadmap-panel-header">
+            <span class="mini-label"><span class="lang en">Ages 5–7 · Curiosity &amp; Storytelling</span><span class="lang am">ዕድሜ 5–7 · ጥያቄና ትረካ</span></span>
+            <h3><span class="lang en">Narrative engagement and primary semantic learning.</span><span class="lang am">ትረካ ትስስርና መሠረታዊ ትርጓሜ ትምህርት።</span></h3>
+            <p><span class="lang en">Children begin asking "why" and "who." Connect the Ethiopian Orthodox Tewahedo Church (EOTC) stories to their daily questions — the saints become friends, the feasts become celebrations they anticipate.</span><span class="lang am">ልጆቹ "ለምን" እና "ማን" ይጀምራሉ። EOTC ታሪኮችን ከዕለታዊ ጥያቄዎቻቸው ጋር ያሳዩ — ቅዱሳን ጓደኞቻቸው ይሆናሉ፣ ዓላት ሲጠባበቋቸው ይሆናሉ።</span></p>
+          </div>
+          <div class="roadmap-features">
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">✝️</span>
+              <h4><span class="lang en">Spiritual Name Meaning</span><span class="lang am">የሥም መንፈሳዊ ትርጓሜ</span></h4>
+              <p><span class="lang en">Teach the child the full story of the saint or theological concept behind their spiritual (baptismal) name. Who was this saint? What did they sacrifice? How does the name shape who you're called to be?</span><span class="lang am">ልጁ/ልጅቷ ለጥምቀት ስማቸው ጀርባ ያለውን ቅዱስ ወይም ሥነ-መለኮታዊ ትርጓሜ ሙሉ ታሪክ ያስተምሩ። ቅዱሱ ማን ነው? ምን ጀመሩ? ስሙ ማነት ወደ ምን ይጠራዎት?</span></p>
+            </div>
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">👑</span>
+              <h4><span class="lang en">Build a Paper "Covenant Crown"</span><span class="lang am">የወረቀት "ቃል ኪዳን ዘውድ" ሥሩ</span></h4>
+              <p><span class="lang en">A hands-on craft: help the child design and assemble a paper crown representing their covenant with God through baptism. Each segment of the crown can name one virtue, one feast, or one saint associated with their name. Frame it and display it.</span><span class="lang am">ማድረጊያ ሥራ: ልጁ/ልጅቷ ከጥምቀት ጋር ያለ ቃል ኪዳናቸውን የሚወክል የወረቀት ዘውድ ያቅዱ። የዘውዱ እያንዳንዱ ክፍል አንድ ፈሪሐ፣ አንድ ዓል፣ ወይም ስማቸው ጋር ቅዱስ ሊሰይም ይችላል። ፍሬም አድርገው ያስቀምጡ።</span></p>
+            </div>
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">📖</span>
+              <h4><span class="lang en">Stories from the Synaxarium</span><span class="lang am">ከስነ-ጽሐፈ ቅዱሳን ታሪኮች</span></h4>
+              <p><span class="lang en">Read age-appropriate synaxarium (Senkesar) stories once a week together. Connect each saint's story to a modern scenario the child recognizes — courage, kindness, honesty, faith under pressure.</span><span class="lang am">ሳምንት አንድ ጊዜ ዕድሜ-ተኮር ስነ-ጽሐፈ ቅዱሳን ታሪኮችን አብረው ያንብቡ። ጀግንነት፣ ደግነት፣ ታማኝነት — ቅዱሱ ታሪክ ልጁ/ልጅቷ ከሚያውቃቸው ዘመናዊ ሁኔታዎች ጋር ያዛምዱ።</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Ages 8–12 -->
+        <div class="roadmap-panel" id="roadmap-8-12" hidden role="tabpanel">
+          <div class="roadmap-panel-header">
+            <span class="mini-label"><span class="lang en">Ages 8–12 · Identity Framework &amp; Active Almsgiving</span><span class="lang am">ዕድሜ 8–12 · ማንነት ምስረታ እና ንቁ ምጽዋት</span></span>
+            <h3><span class="lang en">Behavioral shifts from receiving to proactive giving.</span><span class="lang am">ከመቀበል ወደ ንቁ መስጠት ያለ የባህሪ ለውጥ።</span></h3>
+            <p><span class="lang en">The child can now take active roles in the family's faith life. This stage builds responsibility, generosity, and direct engagement with the Ethiopian Orthodox Tewahedo Church (EOTC) community.</span><span class="lang am">ልጁ/ልጅቷ አሁን ቤተሰቡ የእምነት ሕይወት ውስጥ ንቁ ሚና መጫወት ይችላሉ። ይህ ደረጃ ኃላፊነትን፣ ልግስናን እና EOTC ማኅበረሰብ ጋር ቀጥተኛ ትስስርን ይገነባል።</span></p>
+          </div>
+          <div class="roadmap-features">
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">📋</span>
+              <h4><span class="lang en">Scripture Reading Tracker</span><span class="lang am">የቅዱስ ጽሑፍ ንባብ መከታተያ</span></h4>
+              <p><span class="lang en">Create a monthly reading checklist: Psalms, Gospel passages, and feast-day epistles. Each completed reading is marked. Review together at month's end and discuss what resonated. A simple notebook works well.</span><span class="lang am">ወርሃዊ ዝርዝር ያዘጋጁ: መዝሙር፣ ወንጌል፣ የዓላት ኤፊስጦሳ። ሙሉ ንባብ ምልክት ያድርጉ። ወርሃ መጨረሻ አብረው ይቃኙ። ቀላል ደብተር ጥሩ ነው።</span></p>
+              <div class="roadmap-checklist">
+                <label><input type="checkbox"> <span><span class="lang en">Psalm of the week</span><span class="lang am">የሳምንቱ መዝሙር</span></span></label>
+                <label><input type="checkbox"> <span><span class="lang en">Sunday Gospel reading</span><span class="lang am">የሰንበት ወንጌል</span></span></label>
+                <label><input type="checkbox"> <span><span class="lang en">Feast-day epistle</span><span class="lang am">የዓልቱ ኤፊስጦሳ</span></span></label>
+                <label><input type="checkbox"> <span><span class="lang en">Monthly prayer of St. Mary</span><span class="lang am">ወርሃዊ የቅድስት ማርያም ጸሎት</span></span></label>
+              </div>
+            </div>
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">🤝</span>
+              <h4><span class="lang en">Community Outreach Checkpoint</span><span class="lang am">የማኅበረሰብ አገልግሎት ምልክት</span></h4>
+              <p><span class="lang en">Quarterly acts of giving: prepare food for families in need, visit an elder, or donate to the Sunday School. Track each act and discuss its spiritual significance afterward.</span><span class="lang am">ሩብ ዓመታዊ የምጽዋት ድርጊቶች: ለቤተሰቦች ምግብ ማዘጋጀት፣ አረጋዊን መጎብኘት፣ ለሰንበት ትምህርት ቤት መስጠት። ድርጊቶቹን ይከታተሉ።</span></p>
+              <div class="roadmap-checklist">
+                <label><input type="checkbox"> <span><span class="lang en">Q1 act of giving completed</span><span class="lang am">1ኛ ሩብ ዓመት ምጽዋት</span></span></label>
+                <label><input type="checkbox"> <span><span class="lang en">Q2 act of giving completed</span><span class="lang am">2ኛ ሩብ ዓመት ምጽዋት</span></span></label>
+                <label><input type="checkbox"> <span><span class="lang en">Q3 act of giving completed</span><span class="lang am">3ኛ ሩብ ዓመት ምጽዋት</span></span></label>
+                <label><input type="checkbox"> <span><span class="lang en">Q4 act of giving completed</span><span class="lang am">4ኛ ሩብ ዓመት ምጽዋት</span></span></label>
+              </div>
+            </div>
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">☎️</span>
+              <h4><span class="lang en">Godparent Engagement Checkpoint</span><span class="lang am">የሰምዕ ወላጅ ቅርብ ሁኔታ</span></h4>
+              <p><span class="lang en">Set a bi-annual checkpoint where the child personally contacts their spiritual godparents (Semae Wolaj) — by phone, letter, or in person. This reinforces the covenantal relationship established at baptism.</span><span class="lang am">ልጁ/ልጅቷ ራሱ/ራሷ ሰምዕ ወላጆቻቸውን — ስልክ፣ ደብዳቤ፣ ወይም ሰው በሰው — በዓመት ሁለቴ ያነጋግሩ። ይህ ከጥምቀት ቃል ኪዳን ጋር ቁርኝቱን ያጠናክራል።</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Ages 13–18 -->
+        <div class="roadmap-panel" id="roadmap-13-18" hidden role="tabpanel">
+          <div class="roadmap-panel-header">
+            <span class="mini-label"><span class="lang en">Ages 13–18 · Adolescence &amp; Covenant Renewal</span><span class="lang am">ዕድሜ 13–18 · ጉርምስና እና ቃል ኪዳን ታደሰ</span></span>
+            <h3><span class="lang en">Personal commitment and navigating peer dynamics.</span><span class="lang am">ፍርዶት ቁርጠኝነት እና ማህበራዊ ፈተናዎችን መሸናፍ።</span></h3>
+            <p><span class="lang en">The adolescent now encounters peer pressure, identity questions, and external social systems that may conflict with their Ethiopian Orthodox Tewahedo Church (EOTC) formation. This stage provides structured tools for covenant renewal and resilience.</span><span class="lang am">ወጣቱ አሁን የእኩዮቹ ተጽዕኖ፣ የማንነት ጥያቄዎች፣ EOTC ምስረታቸው ጋር ሊጋጩ የሚችሉ ውጫዊ ሥርዓቶች ያጋጥሙታሉ/ታሉ። ይህ ደረጃ ቃል ኪዳን ለማደስ ሥርዓታዊ መሳሪያዎችን ያቀርባል።</span></p>
+          </div>
+          <div class="roadmap-features">
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">🍞</span>
+              <h4><span class="lang en">Holy Communion Scheduling Tool</span><span class="lang am">ቅዱስ ቁርባን ሰሌዳ</span></h4>
+              <p><span class="lang en">Work with the adolescent to plan Holy Communion (Qurban) attendance aligned with the EOTC calendar — fasting periods, feast days, and major liturgical seasons. A printed monthly calendar with marked dates builds intentional practice.</span><span class="lang am">ቅዱስ ቁርባን (ቁርቤ) — ጾምና ፍስሓ — ሳምንታዊ ሰሌዳ አብረው ያቅዱ። ምልክት የተደረጉ ቀናት ያሉት ወርሃዊ ካሌንደር ሆን ብሎ ልምምድ ይሠራሉ።</span></p>
+            </div>
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">💬</span>
+              <h4><span class="lang en">Family Dialogue Templates</span><span class="lang am">የቤተሰብ ውይይት ማዕቀፎች</span></h4>
+              <p><span class="lang en">Structured conversations for families navigating topics like: peer pressure on fasting and faith practices, questions about identity in a diaspora context, social events that conflict with liturgical obligations. These dialogues are meant to be honest, non-judgmental, and theologically grounded.</span><span class="lang am">ስለ ጾምና እምነት ልምምድ ሲደርስ የእኩዮቹ ተጽዕኖ፣ ዲያስፖራ ማንነት ጥያቄዎች፣ ሥርዓተ አምልኮ ጋር የሚጋጩ ማህበራዊ ዝግጅቶች ያሉ ቤተሰቦች ለሚነጋገሩ ሥርዓታዊ ውይይቶች።</span></p>
+            </div>
+            <div class="roadmap-feature-card">
+              <span class="roadmap-icon">📚</span>
+              <h4><span class="lang en">Theological Text Resources</span><span class="lang am">ሥነ-መለኮታዊ ጽሑፍ ሀብቶች</span></h4>
+              <p><span class="lang en">Introduce age-appropriate EOTC theological texts: the Fetha Negest, Haymanot Abew, select Anaphoras. Begin with the "why" — why does EOTC believe what it believes, and how does it differ from other traditions? Deep understanding builds resilient faith.</span><span class="lang am">ዕድሜ-ተኮር EOTC ሥነ-መለኮታዊ ጽሑፎችን ያስተምሩ: ፍትሐ ነገሥት፣ ሃይማኖት አበው፣ ምርጥ አናፎራዎች። "ለምን" ከሚለው ይጀምሩ — EOTC ለምን ያምናል? ሌሎች ወጎች ከምን ይለያል?</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <div class="footer-invitation">
-      <strong><span class="lang en">Let's raise our children together.</span><span class="lang am">ልጆቻችንን አብረን እናሳድግ!</span></strong>
-      <span>© 2026 Lijochachen | ልጆቻችን</span>
-    </div>
-    <aside class="telegram-widget">
-      <span class="mini-label"><span class="lang en">YouTube Channel</span><span class="lang am">የዩቱብ ቻናል</span></span>
-      <h3>Lejochachen</h3>
-      <p><span class="lang en">Stories, songs, feast-day lessons, quizzes, and family programs for Ethiopian Orthodox families.</span><span class="lang am">ለኢትዮጵያ ኦርቶዶክስ ቤተሰቦች ታሪኮች፣ መዝሙሮች፣ የበዓላት ትምህርቶችና የቤተሰብ ፕሮግራሞች።</span></p>
-      <a href="https://www.youtube.com/@lejochachen" target="_blank" rel="noopener">youtube.com/@lejochachen</a>
-    </aside>
-    <a href="#top"><span class="lang en">Back to top</span><span class="lang am">ወደ ላይ</span></a>
-  </footer>
+  <p>© 2026 Lejochachen. All Rights Reserved.</p>
+  <p>Principal Office: 17318 SW 128th Ave, Tigard, OR 97224</p>
+  <div class="footer-entity-row">
+    <span class="footer-entity"><strong>Lejochachen-ETH</strong> — EOTC-Lejochachen Professional Association Ethiopia</span>
+    <span class="footer-entity-sep">|</span>
+    <span class="footer-entity"><strong>Lejochachen-US</strong> — Lejochachen Charity Organization (United States)</span>
+  </div>
+  <p>Lejochachen is organized and operated exclusively for charitable, religious, and educational purposes under Section 501(c)(3) of the Internal Revenue Code. · <a href="about.html#legal-entities">Legal &amp; Compliance</a></p>
+</footer>
 
   <script src="app.js"></script>
 </body>
