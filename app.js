@@ -258,3 +258,164 @@ document.querySelectorAll('.playlist-tab-btn').forEach(btn => {
     });
   });
 });
+
+/* ============================================================
+   VISUAL ENHANCEMENTS
+   ============================================================ */
+
+/* ── 1. Inject hero orbs into every .site-shell ── */
+(function injectHeroOrbs() {
+  const shell = document.querySelector('.site-shell');
+  if (!shell) return;
+  const wrap = document.createElement('div');
+  wrap.className = 'hero-orbs';
+  wrap.setAttribute('aria-hidden', 'true');
+  wrap.innerHTML =
+    '<div class="hero-orb hero-orb--1"></div>' +
+    '<div class="hero-orb hero-orb--2"></div>' +
+    '<div class="hero-orb hero-orb--3"></div>' +
+    '<div class="hero-orb hero-orb--4"></div>' +
+    '<div class="hero-orb hero-orb--5"></div>';
+  shell.insertBefore(wrap, shell.firstChild);
+})();
+
+/* ── 2. Sticky nav glass effect on scroll ── */
+(function initNavScroll() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const onScroll = () => {
+    nav.classList.toggle('nav--scrolled', window.scrollY > 64);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ── 3. Scroll-reveal with stagger for grid children ── */
+(function initScrollReveal() {
+  const SELECTOR = [
+    '.program-card', '.story-card', '.identity-card',
+    '.section-heading', '.why-card', '.motto-card',
+    '.entity-card', '.person-card', '.recognition-card',
+    '.impact-grid > div', '.roadmap-feature-card', '.work-card',
+    '.action-tile', '.photo-story-copy', '.photo-mosaic',
+    '.image-ribbon figure', '.gallery-grid figure',
+    '.verse-card', '.resource-card', '.join-card',
+    '.join-form-card', '.purpose-list li', '.video-card',
+    '.benefit-list li', '.wide-photo-band', '.scripture-break',
+    '.qr-block', '.registry-banner', '.calculator-card',
+    '.channel-banner', '.channel-banner--live',
+    '.media-pillar-banner', '.quote-band',
+    '.photo-archive-grid figure'
+  ].join(',');
+
+  /* Mark stagger containers */
+  const STAGGER = [
+    '.program-grid', '.why-support-grid', '.mottos-grid',
+    '.entity-grid', '.people-grid', '.impact-grid',
+    '.work-together-grid', '.gallery-grid', '.image-ribbon',
+    '.roadmap-features', '.purpose-list', '.benefit-list',
+    '.photo-archive-grid', '.resource-grid'
+  ].join(',');
+
+  document.querySelectorAll(STAGGER).forEach(g => g.classList.add('sr-stagger'));
+
+  const els = Array.from(document.querySelectorAll(SELECTOR));
+  els.forEach(el => {
+    if (!el.closest('.site-shell')) {
+      el.classList.add('sr');
+    }
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('sr--visible'));
+    return;
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sr--visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -28px 0px' });
+
+  document.querySelectorAll('.sr').forEach(el => obs.observe(el));
+})();
+
+/* ── 4. Button ripple effect ── */
+(function initRipple() {
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('.btn, button');
+    if (!target || target.classList.contains('lang-btn')) return;
+    const wave = document.createElement('span');
+    wave.className = 'ripple-wave';
+    const rect = target.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 2;
+    wave.style.cssText =
+      `width:${size}px;height:${size}px;` +
+      `left:${e.clientX - rect.left - size / 2}px;` +
+      `top:${e.clientY - rect.top - size / 2}px;` +
+      `position:absolute;border-radius:50%;pointer-events:none;`;
+    target.style.position = target.style.position || 'relative';
+    target.style.overflow = 'hidden';
+    target.appendChild(wave);
+    wave.addEventListener('animationend', () => wave.remove());
+  });
+})();
+
+/* ── 5. Animated counter for impact numbers ── */
+(function initCounters() {
+  if (!('IntersectionObserver' in window)) return;
+
+  const counters = document.querySelectorAll('.impact-grid strong, .metric-row strong');
+  if (!counters.length) return;
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const raw = el.textContent.trim();
+      const numMatch = raw.match(/\d+/);
+      if (!numMatch) return;
+
+      const target = parseInt(numMatch[0], 10);
+      const prefix = raw.slice(0, raw.indexOf(numMatch[0]));
+      const suffix = raw.slice(raw.indexOf(numMatch[0]) + numMatch[0].length);
+      const duration = 1200;
+      const startTime = performance.now();
+
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = prefix + Math.round(target * eased) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+
+  counters.forEach(c => obs.observe(c));
+})();
+
+/* ── 6. Subtle parallax on hero orbs (desktop only) ── */
+(function initParallax() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const orbs = document.querySelectorAll('.hero-orb');
+  if (!orbs.length) return;
+
+  window.addEventListener('mousemove', (e) => {
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const dx = (e.clientX - cx) / cx;
+    const dy = (e.clientY - cy) / cy;
+    orbs.forEach((orb, i) => {
+      const depth = (i + 1) * 6;
+      orb.style.transform =
+        orb.style.transform.replace(/translate\([^)]*\)/g, '') +
+        ` translate(${dx * depth}px, ${dy * depth}px)`;
+    });
+  }, { passive: true });
+})();
