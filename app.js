@@ -1,25 +1,23 @@
 /* ── Language toggle ── */
 const root = document.body;
 
-function applyPlaceholders(lang) {
+function applyLang(lang) {
+  root.setAttribute('data-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.setLang === lang)
+  );
   document.querySelectorAll('[data-placeholder-en]').forEach(el => {
     el.placeholder = lang === 'am' ? (el.dataset.placeholderAm || '') : (el.dataset.placeholderEn || '');
   });
+  localStorage.setItem('lejo-lang', lang);
 }
 
 document.querySelectorAll('[data-set-lang]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.dataset.setLang;
-    root.setAttribute('data-lang', lang);
-    document.querySelectorAll('.lang-btn').forEach(b =>
-      b.classList.toggle('active', b.dataset.setLang === lang)
-    );
-    applyPlaceholders(lang);
-  });
+  btn.addEventListener('click', () => applyLang(btn.dataset.setLang));
 });
 
-/* Apply placeholders on load */
-applyPlaceholders(root.dataset.lang || 'en');
+/* Restore saved language on every page load */
+applyLang(localStorage.getItem('lejo-lang') || 'en');
 
 /* ── Active navigation ── */
 function updateActiveNav() {
@@ -116,18 +114,36 @@ if (volunteerForm) {
   });
 }
 
-/* ── Join / membership form ── */
-const joinForm = document.getElementById('join-form');
-const joinResponse = document.getElementById('join-response');
-if (joinForm) {
-  joinForm.addEventListener('submit', e => {
+/* ── Ethiopia membership form ── */
+const joinFormEth = document.getElementById('join-form-eth');
+const ethJoinResponse = document.getElementById('eth-join-response');
+if (joinFormEth) {
+  const ethProofSummary = document.getElementById('eth-proof-summary');
+  if (ethProofSummary) ethProofSummary.required = true;
+
+  joinFormEth.addEventListener('submit', e => {
     e.preventDefault();
-    if (joinResponse) {
-      joinResponse.textContent = root.dataset.lang === 'am'
-        ? 'አመሰግናለን! ብዙም ሳይቆይ እናነጋግርዎታለን።'
-        : 'Thank you! We will contact you soon.';
+    if (ethJoinResponse) {
+      ethJoinResponse.textContent = root.dataset.lang === 'am'
+        ? 'አመሰግናለን! ማመልከቻዎ ለግምገማ ደርሷል። ምዝገባዎ የሚረጋገጠው ማኅበሩ በስልክ ወይም በኢሜይል ካጸደቀልዎት በኋላ ብቻ ነው።'
+        : 'Thank you! Your Ethiopia membership application has been received. Registration is confirmed only after approval by phone or email from the association.';
     }
-    joinForm.reset();
+    joinFormEth.reset();
+  });
+}
+
+/* ── USA membership form ── */
+const joinFormUsa = document.getElementById('join-form-usa');
+const usaJoinResponse = document.getElementById('usa-join-response');
+if (joinFormUsa) {
+  joinFormUsa.addEventListener('submit', e => {
+    e.preventDefault();
+    if (usaJoinResponse) {
+      usaJoinResponse.textContent = root.dataset.lang === 'am'
+        ? 'አመሰግናለን! ማመልከቻዎ ለግምገማ ደርሷል። ምዝገባዎ የሚረጋገጠው ማኅበሩ በስልክ ወይም በኢሜይል ካጸደቀልዎት በኋላ ብቻ ነው።'
+        : 'Thank you! Your USA membership application has been received. Registration is confirmed only after approval by phone or email from the association.';
+    }
+    joinFormUsa.reset();
   });
 }
 
